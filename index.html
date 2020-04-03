@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <script type="text/javascript" src="libArbol/dist/vis.js"></script>
+    <link href="libArbol/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+  
+
+</head>
+
+<style>
+    
+.row{
+    background-color:#dee2e6;
+
+    border: 1.1px solid #222;
+    padding-bottom: 20px;
+    
+}
+
+
+.formNodoDesicion{
+
+    padding-top:30px;
+    padding-left: 100px;
+   
+    
+}
+
+/* .fomMaxiMini{
+    padding-left: 50px;
+   
+    background: rgba(0, 123, 255, 0.5);
+    width: 100%;
+    margin-top: 31px;
+
+} */
+#mynetwork {
+      width: 1000px;
+      height: 800px;
+      border: 1px solid lightgray;
+     
+}
+
+.respuesta{
+    /* background: #28a745; */
+
+    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-left: 196px;
+}
+.arbolDibujo{
+    padding-left: 186px;
+     padding-bottom: 164px;
+    padding-top: 30px;
+}
+
+body{
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+    background-color: #dc3545;
+  
+}
+/* .row .formNodoDesicion {
+    border: 3px solid #222;
+} */
+
+h1{
+    text-align: center;
+}
+
+.integrantes p{
+ float: left;
+ padding-left: 40px;
+ font-size: 20px;
+}
+h4{
+    text-align: center;
+}
+</style>
+<body>
+
+    <h1>ARBOLES DE DESICIÓN</h1>
+
+    <div class="row">
+
+
+        <div class="col-log-8 integrantes">
+            <h5>Integrantes: </h5>
+                <p>Jhonny Morocho</p><br>
+                <p>Samantha Gonzalez</p><br>
+                <p>Pablo Medina</p><br>
+        </div>
+
+        <div class="col-log-4 integrantes">
+            <h5>Docente: </h5>
+                <p>Ing Marlon Viñan</p><br>
+        </div>
+    </div>
+    
+    <h4>FORMULARIO </h4>
+
+   <div class="row">
+
+        <div class="col-log-4">
+            <div class="formNodoDesicion">
+
+                <form id="idAddNodoDesicion" method="post" action="#">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Add Nodo de Desición</label>
+                    <input type="text" class="form-control" id="inptNodoDesicion" aria-describedby="emailHelp" placeholder="Automatico" >
+   
+                </div>
+                <button type="submit" class="btn btn-primary">+</button>
+                </form>
+
+
+                <div class="nodo1">
+                
+                </div>
+            </div>
+
+            
+        </div>
+
+
+        <div class="col-log-4">
+
+                <div class="formNodoDesicion">
+
+                    <form id="idAddRamaDesision" method="post" action="#">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Add Rama de Desición/Nodo Evento</label>
+                                <input type="text" class="form-control" id="inptRamaDesicion" aria-describedby="" placeholder="Ingrese Nombre de la Rama" required>
+                          
+                        </div>
+                        <button type="submit" class="btn btn-success">+</button>
+                    </form>
+
+
+                    <div class="nodo2">
+                    </div>
+                
+                </div>
+        </div>
+
+
+
+        <div class="col-log-4">
+
+            <div class="formNodoDesicion">
+                <form  id="idAddRamaEvento" method="post" action="#">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Add Rama Evento</label>
+                        <br>
+                        <small id="emailHelp" class="form-text text-muted">NombreRama</small>
+                        <input type="text" class="form-control" id="inptNameRama" aria-describedby="emailHelp" placeholder="" required>
+                        
+                        <small id="emailHelp" class="form-text text-muted">Lucro</small>
+                        <input type="number" class="form-control" id="inptLucro" aria-describedby="emailHelp" placeholder="" required>
+
+                        <small id="emailHelp" class="form-text text-muted">Probablidad</small>
+                        <input type="number" step="0.01" class="form-control" id="inptProblidad" aria-describedby="emailHelp" placeholder="" required>
+                    </div>
+                        <button type="submit" class="btn btn-danger">Add Atributos</button>
+                </form>
+
+            </div>
+        </div>
+
+        
+        
+    </div> 
+
+    <h4>Opciones de Maximización/Minimización</h4>
+
+    <div class="row">
+        <div class="col-log-6 fomMaxiMini">
+    
+            <div class="formNodoDesicion">
+                <form id="formEjecutar" method="post" action="#">
+                    
+                        <legend>Opciones</legend>
+                        <label>
+                            <input type="radio" name="opscion" value="max" checked> Maximizar
+                        </label>
+                        <label>
+                            <input type="radio" name="opscion" value="min"> Minimizar
+                        </label>
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+    <h4>Respuesta Óptima: </h4>
+    <div class="row">
+        <div class="col-log-12 fomMaxiMini">
+           
+            <div class="classRespuesta">
+               
+            </div>
+        </div>
+       
+    </div>
+
+    <h4>Cálculo de los VME </h4>
+    <div class="row">
+        <div class="col-log-12 fomMaxiMini">
+    
+            <div class="vme">
+               
+            </div>
+        </div>
+       
+    </div>
+        <h4>Representación Gráfica del árbol</h4>
+<div class="row">
+
+    <div class="col-log-12">
+        <div class="col-log-12 arbolDibujo">
+            <div id="mynetwork"></div>
+        </div>
+
+    </div>
+        
+   
+</div>
+
+<script type="text/javascript">
+  //create an array with nodes
+//   var nodes = new vis.DataSet([
+//     {id: 1, label: 'Node 1'},
+//     {id: 2, label: 'Node 2'},
+//     {id: 3, label: 'Node 3'},
+//     {id: 4, label: 'Node 4'},
+//     {id: 5, label: 'Node 5'},
+//     {id: 6, label: 'Node 6'},
+//     {id: 7, label: 'Node 7'},
+//     {id: 8, label: 'Node 8'}
+//   ]);
+
+//   // create an array with edges
+//   var edges = new vis.DataSet([
+//     {from: 1, to: 8, arrows:'to', dashes:true},
+//     {from: 1, to: 3, arrows:'to'},
+//     {from: 1, to: 2, arrows:'to, from'},
+//     {from: 2, to: 4, arrows:'to, middle'},
+//     {from: 2, to: 5, arrows:'to, middle, from'},
+//     {from: 5, to: 6, arrows:{to:{scaleFactor:2}}},
+//     {from: 6, to: 7, arrows:{middle:{scaleFactor:0.5},from:true}}
+//   ]);
+
+//   // create a network
+//   var container = document.getElementById('mynetwork');
+//   var data = {
+//     nodes: nodes,
+//     edges: edges
+//   };
+//   var options = {};
+//   var network = new vis.Network(container, data, options);
+</script>
+
+</body>
+
+<script src="js/jquery/jquery.js"></script>
+<script src="js/boostrap/bootstrap.js"></script>
+
+<script src="js/main.js"></script>
+
+
+</html>
